@@ -30,6 +30,10 @@ public class MainActivity extends Activity {
         button1.setOnClickListener(new OnClickListener() {		
 			@Override
 			public void onClick(View v) {
+				if(ip.equals("127.0.0.1")) {
+					new MediaStreamServer(port);
+					new MediaStreamClient(ip, port);
+				}
 				if(ip.equals("0.0.0.0")) new MediaStreamServer(port);
 				else new MediaStreamClient(ip, port);
 			}
