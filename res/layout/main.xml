@@ -14,7 +14,7 @@ android:layout_height="fill_parent"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_weight="2"
-		android:text="192.168.2.1"
+		android:text="127.0.0.1"
 		/>
 	    <EditText
 	    android:id="@+id/editText2"
@@ -27,7 +27,7 @@ android:layout_height="fill_parent"
 	    android:id="@+id/button1"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="Connect"
+		android:text="Start"
 		/>
 	</LinearLayout>
 	<ScrollView    
