@@ -38,16 +38,14 @@ public class MainActivity extends Activity {
 					if(ip.equals("127.0.0.1") || ip.equals("0.0.0.0")) {
 						mss = new MediaStreamServer(port);
 					}
-					/*
 					if(!ip.equals("0.0.0.0")) {
 						msc = new MediaStreamClient(ip, port);
 					}
-					*/
 				}
 				else if(button1.getText().toString().equals("Stop")) {
 					button1.setText("Start");
 					mss.stop();
-					//msc.stop();
+					msc.stop();
 				}
 			}
 		});
