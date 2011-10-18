@@ -37,6 +37,10 @@ public class MediaStreamServer {
 		            catch (IOException e) { e.printStackTrace(); }
 		        }  
 		        audioRecord.stop();
+				try {
+					sockfd.close();
+					connfd.close();
+				} catch (IOException e) { e.printStackTrace(); }
 			}
 		}.start();
 	}

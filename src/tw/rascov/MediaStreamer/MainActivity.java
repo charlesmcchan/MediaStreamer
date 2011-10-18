@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onStopTrackingTouch(SeekBar arg0) {
 				float vol = (float)(arg0.getProgress())/(float)(arg0.getMax());  
-                msc.setVolume(vol, vol);
+                if(msc!=null) msc.setVolume(vol, vol);
 			} 
 			
 			@Override

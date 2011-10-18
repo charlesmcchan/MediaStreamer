@@ -1,7 +1,6 @@
 package tw.rascov.MediaStreamer;
 
 import java.io.IOException;
-import java.net.ServerSocket;
 import java.net.Socket;
 import android.media.AudioFormat;
 import android.media.AudioManager;
@@ -13,7 +12,6 @@ public class MediaStreamClient {
     static final int audioEncoding = AudioFormat.ENCODING_PCM_16BIT;
     boolean isPlaying;
 	int playBufSize;
-    ServerSocket sockfd;
     Socket connfd;
 	AudioTrack audioTrack;
 	
@@ -38,6 +36,9 @@ public class MediaStreamClient {
 		        	audioTrack.write(buffer, 0, readSize);
 		        }  
 		        audioTrack.stop();
+				try {
+					connfd.close();
+				} catch (IOException e) { e.printStackTrace(); }
 			}
 		}.start();
 	}
