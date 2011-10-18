@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:orientation="vertical"
-android:layout_width="fill_parent"
-android:layout_height="fill_parent"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
 >
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:orientation="horizontal"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
 	>
 	    <EditText
 	    android:id="@+id/editText1"
@@ -30,15 +30,9 @@ android:layout_height="fill_parent"
 		android:text="Start"
 		/>
 	</LinearLayout>
-	<ScrollView    
-	android:layout_width="match_parent"    
-	android:layout_height="match_parent"
-	android:scrollbars="vertical|horizontal"
-	>  
-		<TextView
-		android:id="@+id/textView1"
-		android:layout_height="match_parent"
-		android:layout_width="match_parent"
-		/>
-	</ScrollView>
+	<SeekBar
+	android:id="@+id/volume"
+	android:layout_height="wrap_content"
+	android:layout_width="match_parent"
+	/>
 </LinearLayout>

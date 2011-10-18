@@ -45,4 +45,8 @@ public class MediaStreamClient {
 	public void stop() {
 		isPlaying = false;
 	}
+	
+	public void setVolume(float lvol, float rvol) {
+		audioTrack.setStereoVolume(lvol, rvol);
+	}
 }

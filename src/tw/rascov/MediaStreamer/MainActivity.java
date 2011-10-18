@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.SeekBar;
 
 public class MainActivity extends Activity {
 	EditText editText1, editText2;
 	Button button1;
-	TextView textView1;
+	SeekBar volume;
 	String ip;
 	int port;
     MediaStreamServer mss;
@@ -26,7 +26,9 @@ public class MainActivity extends Activity {
         editText1 = (EditText) findViewById(R.id.editText1);
         editText2 = (EditText) findViewById(R.id.editText2);
         button1 = (Button) findViewById(R.id.button1);
-        textView1 = (TextView) findViewById(R.id.textView1);
+        volume = (SeekBar) findViewById(R.id.volume);
+        volume.setMax(100);
+        volume.setProgress(50); 
         ip = editText1.getText().toString();
         port = Integer.valueOf(editText2.getText().toString());
         
@@ -50,5 +52,18 @@ public class MainActivity extends Activity {
 			}
 		});
         
+        volume.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+			@Override
+			public void onStopTrackingTouch(SeekBar arg0) {
+				float vol = (float)(arg0.getProgress())/(float)(arg0.getMax());  
+                msc.setVolume(vol, vol);
+			} 
+			
+			@Override
+			public void onProgressChanged(SeekBar arg0, int arg1, boolean arg2) {}
+
+			@Override
+			public void onStartTrackingTouch(SeekBar arg0) {}
+        });       
     }
 }
