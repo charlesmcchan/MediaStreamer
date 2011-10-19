@@ -20,7 +20,7 @@ public class MediaStreamClient {
 	public MediaStreamClient(final Context ctx, final String ip, final int port) {
 		playBufSize=AudioTrack.getMinBufferSize(frequency, channelConfiguration, audioEncoding);
 		audioTrack = new AudioTrack(AudioManager.STREAM_VOICE_CALL, frequency, channelConfiguration, audioEncoding, playBufSize, AudioTrack.MODE_STREAM);
-		audioTrack.setStereoVolume(0.2f, 0.2f);
+		audioTrack.setStereoVolume(1f, 1f);
 		
 		new Thread() {
 			byte[] buffer = new byte[playBufSize];

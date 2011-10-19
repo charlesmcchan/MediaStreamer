@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -42,7 +43,7 @@ public class MainActivity extends Activity {
         button1 = (Button) findViewById(R.id.button1);
         volume = (SeekBar) findViewById(R.id.volume);
         volume.setMax(100);
-        volume.setProgress(20); 
+        volume.setProgress(100); 
         textView1 = (TextView) findViewById(R.id.textView1);
         textView1.append("Current IP: "+getLocalIpAddress()+"\n");
 
@@ -101,6 +102,14 @@ public class MainActivity extends Activity {
     	IntentFilter filter = new IntentFilter();
         filter.addAction("tw.rascov.MediaStreamer.ERROR");
         registerReceiver(receiver, filter);
+    }
+    
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+        	System.exit(0);
+        }
+        return super.onKeyDown(keyCode, event);
     }
     
     public String getLocalIpAddress() {
